@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      User Profile
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/defaultPathIfNoHistory" (click)="navigateBack()"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="profile-card">
+    <img [src]="profilePicture" *ngIf="profilePicture" />
+    <ion-button expand="full" (click)="changeProfilePicture()">Upload Profile</ion-button>
+    <ion-card-content>
+      <ion-item>
+        <ion-label><strong> Username:</strong></ion-label>
+        <em><ion-input [(ngModel)]="username" readonly></ion-input></em>
+        <ion-button slot="end" (click)="editProfile()">Edit</ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label> <strong>Email: </strong> </ion-label>
+        <em><ion-input [value]="email" readonly></ion-input></em>
+      </ion-item>
+      <ion-button expand="full" color="danger" (click)="logout()">Logout</ion-button>  
+       <ion-button expand="full" fill="outline" (click)="confirmDeactivation()">Deactivate</ion-button> <!-- Updated click handler -->
+     </ion-card-content>
+  </ion-card>
+</ion-content> 
+
+
+
+

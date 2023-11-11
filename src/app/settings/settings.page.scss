@@ -1,0 +1,44 @@
+ion-header {
+    --background: var(--ion-color-primary);
+    --color: #ffffff;  /* White text color */
+  }
+  
+  ion-item {
+    --background: #f0f0f0;  /* Light grey background */
+    --color: #000000;  /* Black text color */
+  }
+  
+  ion-toggle {
+    --background: #d9d9d9;  /* Light grey toggle background */
+    --handle-background: var(--ion-color-primary);  /* Green toggle handle */
+  }
+  
+  ion-header {
+    ion-toolbar {
+        --background: #2e7d32; 
+        color: #ffffff; 
+  
+        ion-title {
+            font-size: 1em;
+            font-weight: bold;
+        }
+  
+        ion-img {
+            height: 70px; 
+            width: 70px;  
+            padding-left: 20px;
+        }
+    }
+  }
+
+  /* settings.page.scss */
+// some-component.scss
+
+.text-class {
+  color: var(--ion-text-color);
+}
+
+.item-class {
+  color: var(--ion-item-text-color);
+}
+

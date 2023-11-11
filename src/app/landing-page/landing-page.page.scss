@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  margin: 0 auto;
+  padding:0;
+
+  .hero-section {
+    margin-bottom: 2rem;
+
+    .logo-large {
+      max-width: 150px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #2e7d32;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      color: #6b6b6b;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .action-buttons {
+    width: 100%;
+
+    ion-button {
+      margin-bottom: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 20px;
+    }
+
+    .login-button {
+      --background: #4caf50;
+      --background-activated: #388e3c;
+      --background-focused: #4caf50;
+    }
+
+    .signup-button {
+      --background: #f44336;
+      --background-activated: #d32f2f;
+      --background-focused: #f44336;
+    }
+  }
+}
+
+// Global styles
+ion-header {
+  ion-toolbar {
+    --background: #2e7d32;
+    color: #ffffff;
+
+    ion-title {
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+
+    ion-img {
+      height: 50px;
+      padding-left: 20px;
+    }
+  }
+}

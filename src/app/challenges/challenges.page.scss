@@ -1,0 +1,31 @@
+ion-header {
+    --background: var(--ion-color-primary);
+    --color: #ffffff;  /* White text color */
+  }
+  
+  ion-list {
+    ion-item {
+      --background: #f0f0f0;  /* Light grey background */
+      --color: #000000;  /* Black text color */
+      margin: 10px;
+      border-radius: 10px;
+    }
+  }
+  
+  ion-header {
+    ion-toolbar {
+        --background: #2e7d32; 
+        color: #ffffff; 
+  
+        ion-title {
+            font-size: 1em;
+            font-weight: bold;
+        }
+  
+        ion-img {
+            height: 70px; 
+            width: 70px;  
+            padding-left: 20px;
+        }
+    }
+  }

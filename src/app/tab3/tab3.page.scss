@@ -1,0 +1,33 @@
+ion-header,
+ion-list-header {
+  font-family: 'Raleway', sans-serif;
+}
+
+ion-item {
+  border-radius: 10px;
+  --background: #ffffff;
+  --ion-item-ios-background: #ffffff;
+  --ion-item-md-background: #ffffff;
+}
+
+ion-thumbnail {
+  --border-radius: 8px;
+}
+
+ion-header {
+  ion-toolbar {
+      --background: #2e7d32; 
+      color: #ffffff; 
+
+      ion-title {
+          font-size: 1.4em;
+          font-weight: bold;
+      }
+
+      ion-img {
+          height: 70px; 
+          width: 70px;  
+          padding-left: 20px;
+      }
+  }
+}

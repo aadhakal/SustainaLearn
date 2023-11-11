@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>SignUp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="signupForm" (ngSubmit)="onSignup()">
+
+    <!-- Name Field -->
+    <ion-item>
+      <ion-label position="floating">Name:</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+    <!-- Name Error Message -->
+    <ion-text color="danger" *ngIf="signupForm.controls['name'].touched && signupForm.controls['name'].errors?.['minlength']">
+      Name must be at least 3 characters long.
+    </ion-text>
+
+    <!-- Email Field -->
+    <ion-item>
+      <ion-label position="floating">Email:</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <!-- Email Error Message -->
+    <ion-text color="danger" *ngIf="signupForm.controls['email'].touched && signupForm.controls['email'].errors?.['email']">
+      Please enter a valid email address.
+    </ion-text>
+
+    <!-- Password Field -->
+    <ion-item>
+      <ion-label position="floating">Password:</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+
+    <ion-text color="danger" *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].errors?.['minlength']">
+      Password must be at least 8 characters long.
+    </ion-text>
+
+    <!-- Confirm Password Field -->
+    <ion-item>
+      <ion-label position="floating">Confirm Password:</ion-label>
+      <ion-input type="password" formControlName="confirmPassword"></ion-input>
+    </ion-item>
+    <!-- Confirm Password Error Message -->
+    <ion-text color="danger" *ngIf="signupForm.controls['confirmPassword'].touched && signupForm.controls['confirmPassword'].errors?.['minlength']">
+      Confirm Password must be at least 8 characters long.
+    </ion-text>
+    
+
+    <!-- Submit Button -->
+    <ion-button expand="block" class="ion-margin-top" type="submit">SignUp</ion-button>
+
+    <!-- Sign In Redirect -->
+    <div class="ion-text-center">
+      <ion-button fill="clear" (click)="navigateToSignIn()">Already Have an Account? Sign in Here</ion-button>
+    </div>
+
+    <!-- Success Message -->
+    <ion-item *ngIf="successMessage">
+      <ion-label color="success">{{ successMessage }}</ion-label>
+    </ion-item>
+
+    <!-- Error Message -->
+    <ion-item *ngIf="errorMessage">
+      <ion-label color="danger">{{ errorMessage }}</ion-label>
+    </ion-item>
+
+  </form>
+</ion-content>

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <!-- Email Field -->
+    <ion-item>
+      <ion-label position="floating">Email:</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+    <!-- Email Error Message -->
+    <ion-text color="danger" *ngIf="loginForm.controls['email'].touched && loginForm.controls['email'].errors?.['email']">
+      Please enter a valid email address.
+    </ion-text>
+    
+    <!-- Password Field -->
+    <ion-item>
+      <ion-label position="floating">Password:</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <!-- Password Error Message -->
+    <ion-text color="danger" *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']">
+      Password is required.
+    </ion-text>
+    
+    <!-- Login Button -->
+    <ion-button expand="block" type="submit">Login</ion-button>
+
+    <!-- Forgot Password Toggle -->
+    <div class="ion-text-center">
+      <ion-button fill="clear" (click)="toggleForgotPasswordForm()">Forgot Password?</ion-button>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div *ngIf="showForgotPasswordForm">
+      <form [formGroup]="forgotPasswordForm" (ngSubmit)="forgotPassword($event)">
+        <ion-item>
+          <ion-label position="floating">Email:</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <ion-button expand="block" type="submit">Reset Password</ion-button>
+        <ion-button expand="block" type="button" color="medium" (click)="toggleForgotPasswordForm()">Cancel</ion-button>
+      </form>
+    </div>
+    
+    <!-- Registration Redirect -->
+    <div class="ion-text-center">
+      <ion-button fill="clear" routerLink="/signup">Don't have an Account? Click Here to Register</ion-button>
+    </div>
+
+    <!-- Error Message -->
+    <ion-item *ngIf="errorMessage">
+      <ion-label color="danger">{{ errorMessage }}</ion-label>
+    </ion-item>
+
+    <!-- Success Message -->
+<ion-item *ngIf="successMessage">
+  <ion-label color="success">{{ successMessage }}</ion-label>
+</ion-item>
+
+
+  </form>
+</ion-content>

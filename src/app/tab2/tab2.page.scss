@@ -1,0 +1,52 @@
+ion-header,
+ion-card-title,
+ion-list-header {
+  font-family: 'Raleway', sans-serif;
+}
+
+ion-item {
+  border-radius: 10px;
+  --background: #ffffff;
+  --ion-item-ios-background: #ffffff;
+  --ion-item-md-background: #ffffff;
+}
+
+ion-badge {
+  --color: #ffffff;  /* White */
+}
+
+.milestone {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  img {
+    max-width: 50px;
+    margin-right: 10px;
+  }
+
+  .milestone-info {
+    h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+  }
+}
+
+ion-header {
+  ion-toolbar {
+      --background: #2e7d32; 
+      color: #ffffff; 
+
+      ion-title {
+          font-size: 1.4em;
+          font-weight: bold;
+      }
+
+      ion-img {
+          height: 70px; 
+          width: 70px;  
+          padding-left: 20px;
+      }
+  }
+}

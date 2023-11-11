@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+ion-header,
+ion-card-title,
+ion-list-header {
+  font-family: 'Raleway', sans-serif;
+}
+
+/* Header styling */
+ion-header {
+  ion-toolbar {
+    --background: #2e7d32; 
+    color: #ffffff; 
+
+    ion-title {
+      font-size: 2rem; /* larger font size for the title */
+      font-weight: bold;
+    }
+
+    ion-img {
+      height: 50px; /* adjusted for a balanced look with the larger title */
+      width: auto; /* to maintain the aspect ratio */
+      padding-left: 20px;
+    }
+  }
+}
+
+ion-card {
+  margin: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; /* Center text within the card */
+
+  ion-card-header {
+    ion-card-title {
+      font-size: 1.5rem; /* larger font size for card titles */
+      text-align: center; /* center-aligned card titles */
+    }
+  }
+  ion-card-content {
+    font-size: 1.2rem; /* larger font size for card content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+ion-list {
+  ion-list-header {
+    font-size: 1.5rem; /* larger font size for list headers */
+    text-align: center;
+  }
+  width: 100%; /* Ensure the list takes full width */
+  padding: 0;
+}
+
+ion-item {
+  border-radius: 10px;
+  --background: #ffffff;
+  --ion-item-ios-background: #ffffff;
+  --ion-item-md-background: #ffffff;
+  font-size: 1.2rem; /* larger font size for list items */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text within the item */
+  margin: 8px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+ion-button {
+  --color: #048622;
+  font-size: 1rem; /* adjust this for larger buttons if needed */
+  --background: #4caf50;
+  --background-activated: #388e3c;
+  --border-radius: 20px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+ion-icon {
+  font-size: 1.5rem; /* larger font size for icons in list items */
+}
