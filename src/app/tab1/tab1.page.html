@@ -1,9 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-img slot="start" src="assets/images/logo.png" alt="Sustainability Logo"></ion-img>
-    <ion-title>
-      Sustainable
-    </ion-title>
+    <ion-title>Sustainable</ion-title>
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -11,34 +9,30 @@
 </ion-header>
 
 <ion-content>
-  <!-- Introduction Card -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>Welcome to the Sustainability Challenge App</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      Participate in challenges to promote sustainability and make a positive impact on the environment by gaining knowledge about your role 
-      in Sustainability. <em>Join a challenge below!</em>
+      Participate in challenges to promote sustainability and make a positive impact on the environment by gaining knowledge about your role in Sustainability. <em>Join a challenge below!</em>
     </ion-card-content>
   </ion-card>
 
-  <!-- Challenges Card -->
-  <ion-card class="challenges-card">
-    <ion-card-header>
-      <ion-card-title>Available Challenges</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <!-- Challenge Item -->
-        <ion-item *ngFor="let challenge of challenges" (click)="openChallenge(challenge.id)">
-          <ion-icon slot="start" name="{{ challenge.icon }}" color="primary"></ion-icon>
-          <ion-label>
-            <h2>{{ challenge.title }}</h2>
-          </ion-label>
-          <ion-button fill="outline">Join</ion-button>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" *ngFor="let challenge of challenges">
+        <ion-card (click)="openChallenge(challenge.id)">
+          <img [src]="challenge.image" alt="{{ challenge.title }}" style="width: 100%; height: 215px; object-fit: contain;"/>
+          <ion-card-header>
+            <ion-card-title>{{ challenge.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ challenge.description }}</p>
+            <ion-button expand="block" fill="outline">Join</ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 
