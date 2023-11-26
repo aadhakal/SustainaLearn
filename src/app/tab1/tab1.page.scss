@@ -59,9 +59,9 @@ ion-list {
 
 ion-item {
   border-radius: 10px;
-  --background: #ffffff;
-  --ion-item-ios-background: #ffffff;
-  --ion-item-md-background: #ffffff;
+  // --background: #ffffff;
+  // --ion-item-ios-background: #ffffff;
+  // --ion-item-md-background: #ffffff;
   font-size: 1.2rem; /* larger font size for list items */
   display: flex;
   justify-content: center;
@@ -84,3 +84,5 @@ ion-button {
 ion-icon {
   font-size: 1.5rem; /* larger font size for icons in list items */
 }
+
+
