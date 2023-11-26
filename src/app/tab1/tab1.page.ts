@@ -14,26 +14,25 @@ export class Tab1Page {
       id:'Waste Reduction',
       title: 'Waste Reduction Challenge',
       description: 'Minimize your waste output by recycling and composting.',
-      icon: 'leaf-outline'
+      icon: 'leaf-outline',
+      image:'assets/images/milestone1.png'
     },
     {
       id: 'Energy Conservation',
       title: 'Energy Conservation Challenge',
       description: 'Reduce your energy consumption by turning off unused lights and electronics.',
-      icon: 'flash-outline'
+      icon: 'flash-outline',
+      image:'assets/images/milestone2.png'
     },
       ];
 
   constructor(private navCtrl: NavController, private router: Router) {}
 
-  // openChallenge(challengeId: string) {
-  //   this.router.navigate(['/challenges', challengeId]);
-  // }
 
   openChallenge(challengeId: string) {
+
     this.router.navigate(['/challenges', challengeId]);
   }
-  
 }
 
 

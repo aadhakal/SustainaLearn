@@ -1,6 +1,6 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import 'core-js/es/array/flat-map';
 import 'core-js/es/array/flat';
 
@@ -14,6 +14,8 @@ import 'core-js/es/array/flat';
 
 export class ChallengesPage implements OnInit {
 
+  correctCount = 0;
+  incorrectCount = 0;
 
   challenges: any;
 
@@ -26,7 +28,8 @@ export class ChallengesPage implements OnInit {
 
   constructor(private firestore: AngularFirestore,
     private navCtrl: NavController,
-    private changeDetectorRef: ChangeDetectorRef
+    private changeDetectorRef: ChangeDetectorRef,
+    private alertController: AlertController
     ) {}
 
     getChallenges() {
@@ -114,47 +117,50 @@ export class ChallengesPage implements OnInit {
     }
     
 
-    // submitAnswer(challenge: any) {
-    //   console.log('Submitting answer for challenge:', challenge);
-    //   const selectedChoiceIndex = this.selectedAnswers[challenge.id];
-    
-    //   console.log('Selected choice index:', selectedChoiceIndex);
-    
-    //   if (selectedChoiceIndex !== undefined) {
-    //     const selectedAnswer = `number-${selectedChoiceIndex}`;
-    //     const isCorrect = challenge.correctChoice === selectedAnswer;
-    //     console.log('Is the selected answer correct?', isCorrect);
-    
-    //     this.feedbackMessages[challenge.id] = isCorrect ? 'Correct answer!' : 'Wrong answer.';
-    //   } else {
-    //     this.feedbackMessages[challenge.id] = 'Please select an option.';
-    //   }
-    //   this.changeDetectorRef.detectChanges();
-    // }
-
-
     submitAnswer(challengeUniqueId: string, challengeText: string, choices: any[], correctChoice: string) {
       console.log(`Submitting answer for challenge: ${challengeUniqueId}`);
       const selectedChoiceIndex = this.selectedAnswers[challengeUniqueId];
     
       console.log('Selected choice index:', selectedChoiceIndex);
     
-      // The selectedAnswer variable is now redundant since we're directly comparing indices
       if (selectedChoiceIndex !== undefined) {
-        const isCorrect = correctChoice === `number-${selectedChoiceIndex}`;
+        const selectedAnswer = `number-${selectedChoiceIndex}`;
+        const isCorrect = correctChoice === selectedAnswer;
         console.log('Is the selected answer correct?', isCorrect);
     
-        // Store the feedback message using the unique challenge ID
         this.feedbackMessages[challengeUniqueId] = isCorrect ? 'Correct answer!' : 'Wrong answer.';
+    
+        if (isCorrect) {
+          this.correctCount++;
+        } else {
+          this.incorrectCount++;
+        }
       } else {
-        // Prompt the user to make a selection if they haven't already
         this.feedbackMessages[challengeUniqueId] = 'Please select an option.';
       }
     
       // Trigger change detection to update the view
       this.changeDetectorRef.detectChanges();
+
+      if (Object.keys(this.selectedAnswers).length === this.challenges.length) {
+        this.showResults();
+      }
     }
+  
+    async showResults() {
+      let message = `You got ${this.correctCount} out of ${this.challenges.length} correct. `;
     
+      // Customize the message based on the success or failure
+      message += this.correctCount === this.challenges.length ? 'Success!' : 'Good Try, But Please Try Again.';
+    
+      const alert = await this.alertController.create({
+        header: 'Quiz Results',
+        message: message,
+        buttons: ['OK']
+      });
+    
+      await alert.present();
+    }
     
     
   navigateBack() {

@@ -50,3 +50,26 @@ ion-header {
       }
   }
 }
+
+ion-card {
+  margin: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center; /* Center text within the card */
+
+  ion-card-header {
+    ion-card-title {
+      font-size: 1.5rem; /* larger font size for card titles */
+      text-align: center; /* center-aligned card titles */
+    }
+  }
+  ion-card-content {
+    font-size: 1.2rem; /* larger font size for card content */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

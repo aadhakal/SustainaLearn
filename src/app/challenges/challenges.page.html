@@ -14,22 +14,26 @@
         <ion-card-title>{{ challenge.text }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <!-- We use the name attribute to group radio buttons -->
-        <!-- Inside your *ngFor for challenges -->
-<!-- Inside your *ngFor for challenges -->
-<ion-radio-group [(ngModel)]="selectedAnswers[challenge.id]">
-  <ion-item *ngFor="let choice of challenge.choices; let choiceIndex = index">
-    <ion-label>{{ choice }}</ion-label>
-    <ion-radio slot="start" [value]="choiceIndex" 
-               (ionChange)="updateSelection(challenge.id, choiceIndex)"></ion-radio>
-  </ion-item>
-</ion-radio-group>
-<ion-button expand="full" (click)="submitAnswer(challenge.id, challenge.text, challenge.choices, challenge.correctChoice)">Submit Answer</ion-button>
-<ion-text color="" *ngIf="feedbackMessages[challenge.id]">
-  {{ feedbackMessages[challenge.id] }}
-</ion-text>
-
+        <ion-radio-group [(ngModel)]="selectedAnswers[challenge.id]">
+          <ion-item *ngFor="let choice of challenge.choices; let choiceIndex = index">
+            <ion-label>{{ choice }}</ion-label>
+            <ion-radio slot="start" [value]="choiceIndex" 
+                       (ionChange)="updateSelection(challenge.id, choiceIndex)"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+        <ion-button expand="full" (click)="submitAnswer(challenge.id, challenge.text, challenge.choices, challenge.correctChoice)">Submit Answer</ion-button>
+        <ion-text color="" *ngIf="feedbackMessages[challenge.id]">
+          {{ feedbackMessages[challenge.id] }}
+        </ion-text>
       </ion-card-content>
     </ion-card>
   </ion-list>
-</ion-content>
+
+  <!-- This is the new section for displaying the counts -->
+  <!-- <ion-card>
+    <ion-card-content>
+      <p>Correct Answers: {{ correctCount }}</p>
+      <p>Incorrect Answers: {{ incorrectCount }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content> -->
